@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PineSearch | Greater Portland</title>
+  <meta name="description" content="Find food, shops, parks, trails and events around Portland, Maine.">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="photo-background" aria-hidden="true">
+    <img src="/photos/portland-head-light.jpg" alt="">
+    <img src="/photos/old-port.jpg" alt="">
+    <img src="/photos/eastern-promenade.jpg" alt="">
+    <img src="/photos/portland-observatory.jpg" alt="">
+    <img src="/photos/bug-light.jpg" alt="">
+    <img src="/photos/peaks-island.jpg" alt="">
+    <img src="/photos/spring-point.jpg" alt="">
+    <img src="/photos/portland-museum.jpg" alt="">
+    <img src="/photos/willard-beach.jpg" alt="">
+    <img src="/photos/back-cove.jpg" alt="">
+  </div>
+  <header>
+    <a class="brand" href="/">Pine<span>Search</span></a>
+    <nav aria-label="Page links">
+      <a href="#hearts">Portland hearts</a>
+      <a href="#sources">Data sources</a>
+    </nav>
+  </header>
+  <main>
+    <section class="intro">
+      <div>
+        <p class="eyebrow">Portland, Maine & the surrounding towns</p>
+        <h1>Explore Greater Portland.</h1>
+        <p>Find places to eat, shop, and spend time outdoors.</p>
+      </div>
+    </section>
+    <section class="layout" aria-label="Explore places">
+      <aside class="sidebar">
+        <div class="controls">
+          <label class="label" for="search">Search places</label>
+          <div class="search">
+            <input id="search" type="search" placeholder="Name, town, or activity">
+          </div>
+          <div class="chips" aria-label="Categories">
+            <button class="chip active" data-category="all" aria-pressed="true">All places</button>
+            <button class="chip" data-category="food" aria-pressed="false">Food & drink</button>
+            <button class="chip" data-category="businesses" aria-pressed="false">Shops</button>
+            <button class="chip" data-category="outdoors" aria-pressed="false">Parks</button>
+            <button class="chip" data-category="trails" aria-pressed="false">Trails</button>
+            <button class="chip" data-category="attractions" aria-pressed="false">Attractions</button>
+            <button class="chip" data-category="events" aria-pressed="false">Events</button>
+          </div>
+          <label class="sort-label" for="sort">Sort by</label>
+          <select id="sort">
+            <option value="name">Name: A–Z</option>
+            <option value="distance">Distance from downtown Portland</option>
+            <option id="event-sort" value="date" hidden disabled>Soonest first</option>
+          </select>
+        </div>
+        <div class="resultshead">
+          <strong>Places to explore</strong>
+          <span id="count" aria-live="polite"></span>
+        </div>
+        <p class="event-calendar" id="event-calendar" hidden>
+          <a href="https://portlandmaine.com/events-downtown/">Browse Portland Downtown events</a>
+        </p>
+        <div class="results" id="results"></div>
+        <div class="status" id="status" role="status">Loading sample locations…</div>
+      </aside>
+      <div class="mapwrap">
+        <div id="map" aria-label="Map of Greater Portland"></div>
+      </div>
+    </section>
+    <section id="hearts" class="source-info local-hearts">
+      <h2><span aria-hidden="true">♥</span> Portland hearts</h2>
+      <p>Red paper hearts appear in Portland’s shop windows and on landmarks around Valentine’s Day. Volunteers carry on the tradition made famous by Kevin Fahrman, the Valentine Bandit.</p>
+      <p>Portland Hearts of Pine, Maine’s first professional soccer club, plays at Fitzpatrick Stadium. The club’s Dirigo Heart draws on the same Portland tradition.</p>
+      <div class="local-links">
+        <a href="https://www.heartsofpine.com/">Visit Hearts of Pine</a>
+        <a href="https://www.beakevin.com/bandits-trail">Explore the Bandit’s Trail</a>
+      </div>
+    </section>
+    <section id="sources" class="source-info">
+      <h2>About the listings</h2>
+      <p>OpenStreetMap supplies community-mapped places and trails. Yelp supplies businesses when connected.
+        Portland Museum of Art supplies events for the next 30 days. Ticketmaster adds ticketed events when connected.</p>
+      <p>For more local events, browse the <a href="https://portlandmaine.com/events-downtown/">Portland Downtown events calendar</a>.</p>
+      <p>Sample locations are labeled. Distances are straight-line miles from downtown Portland, not travel distances.
+        Trail pins mark mapped locations.</p>
+      <p id="provider-status" aria-live="polite"></p>
+      <details>
+        <summary>Background photo credits</summary>
+        <p>The photos are cropped and blurred on this page.</p>
+        <ul>
+          <li><a href="https://commons.wikimedia.org/wiki/File:FortWilliams.JPG">Portland Head Light</a> by Sumit Narayan, public domain</li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Old_Port_(Portland,_Maine)_-_IMG_8081.JPG">Old Port</a> by Daderot, public domain</li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Eastern_promenade_portland.jpg">Eastern Promenade</a> by Aude, <a href="https://creativecommons.org/licenses/by-sa/2.5/">CC BY-SA 2.5</a></li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Observatory,_Portland,_ME.jpg">Portland Observatory</a>, unknown photographer, public domain in the US</li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Bug_Light_(15299600691).jpg">Bug Light</a> by Me in ME, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a></li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Casco_Bay_Lines_ferry_Aucocisco_III_passing_Peaks_Island,_2006.jpg">Ferry off Peaks Island</a> by KPWM Spotter, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a></li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Spring_Point_Ledge_Light,_Portland_Harbor,_Maine_(63950).jpg">Spring Point Ledge Light</a> by Tichnor Brothers, public domain in the US</li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Portland_Museum_of_Arts.jpg">Portland Museum of Art</a> by Rennboot, <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a></li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Willard_Beach_(26470353695).jpg">Willard Beach</a> by Me in ME, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a></li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Lights_through_mist_in_Back_Cove_-_Flickr_-_chris.rycroft.jpg">Back Cove</a> by Chris Rycroft, <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a></li>
+        </ul>
+      </details>
+    </section>
+  </main>
+  <footer>
+    <p>A student project by <strong>Sultan Alluhaidan</strong>, a computer science major at the University of Southern Maine.</p>
+    <a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors</a>
+    · Business listings from <a href="https://www.yelp.com/">Yelp</a>
+    · Events from <a href="https://www.ticketmaster.com/">Ticketmaster</a>
+    and <a href="https://www.portlandmuseum.org/events/">Portland Museum of Art</a>
+    · Local calendar <a href="https://portlandmaine.com/events-downtown/">Portland Downtown</a>
+  </footer>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

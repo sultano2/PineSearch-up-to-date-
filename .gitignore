@@ -1,0 +1,10 @@
+node_modules/
+.env
+.env.*
+!.env.example
+*.log
+*.tar
+*.zip
+pinesearch-site/
+.DS_Store
+/docs/superpowers/plans/

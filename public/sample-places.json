@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Portland Head Light",
+    "lat": 43.6231,
+    "lon": -70.2079,
+    "category": "attractions",
+    "detail": "Cape Elizabeth · Lighthouse",
+    "id": "sample-0",
+    "source": "Sample location",
+    "url": "https://www.openstreetmap.org/?mlat=43.6231&mlon=-70.2079"
+  },
+  {
+    "name": "Fort Williams Park",
+    "lat": 43.6248,
+    "lon": -70.2095,
+    "category": "outdoors",
+    "detail": "Cape Elizabeth · Coastal park",
+    "id": "sample-1",
+    "source": "Sample location",
+    "url": "https://www.openstreetmap.org/?mlat=43.6248&mlon=-70.2095"
+  },
+  {
+    "name": "Eastern Promenade",
+    "lat": 43.6673,
+    "lon": -70.2415,
+    "category": "outdoors",
+    "detail": "Portland · Waterfront park",
+    "id": "sample-2",
+    "source": "Sample location",
+    "url": "https://www.openstreetmap.org/?mlat=43.6673&mlon=-70.2415"
+  },
+  {
+    "name": "Back Cove Trail",
+    "lat": 43.6745,
+    "lon": -70.2702,
+    "category": "trails",
+    "detail": "Portland · Walking trail",
+    "id": "sample-3",
+    "source": "Sample location",
+    "url": "https://www.openstreetmap.org/?mlat=43.6745&mlon=-70.2702"
+  },
+  {
+    "name": "Portland Museum of Art",
+    "lat": 43.6536,
+    "lon": -70.2621,
+    "category": "attractions",
+    "detail": "Portland · Art museum",
+    "id": "sample-4",
+    "source": "Sample location",
+    "url": "https://www.openstreetmap.org/?mlat=43.6536&mlon=-70.2621"
+  },
+  {
+    "name": "Bug Light Park",
+    "lat": 43.655,
+    "lon": -70.2337,
+    "category": "outdoors",
+    "detail": "South Portland · Waterfront park",
+    "id": "sample-5",
+    "source": "Sample location",
+    "url": "https://www.openstreetmap.org/?mlat=43.655&mlon=-70.2337"
+  },
+  {
+    "name": "Bite Into Maine",
+    "lat": 43.6238,
+    "lon": -70.2109,
+    "category": "food",
+    "detail": "Cape Elizabeth · Food & drink",
+    "id": "sample-6",
+    "source": "Sample location",
+    "url": "https://www.openstreetmap.org/?mlat=43.6238&mlon=-70.2109"
+  },
+  {
+    "name": "Portland Observatory",
+    "lat": 43.6645,
+    "lon": -70.2468,
+    "category": "attractions",
+    "detail": "Portland · Historic landmark",
+    "id": "sample-7",
+    "source": "Sample location",
+    "url": "https://www.openstreetmap.org/?mlat=43.6645&mlon=-70.2468"
+  }
+]

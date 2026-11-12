@@ -1,0 +1,13 @@
+{
+  "name": "pinesearch",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Explore food, shops, events and outdoor places around Portland, Maine.",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.js",
+    "dev": "node --env-file-if-exists=.env server.js --dev",
+    "test": "node --test"
+  }
+}
