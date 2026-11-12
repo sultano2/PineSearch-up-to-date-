@@ -282,7 +282,7 @@ async function start() {
   const sources = isPages ? ['osm', 'museum'] : ['osm', 'yelp', 'events', 'museum'];
   await Promise.all(sources.map(loadProvider));
   if (isPages) {
-    sourceStatus.yelp = 'disabled (API key not configured)';
+    sourceStatus.yelp = 'API key is disabled';
     updateStatus();
   }
 }
