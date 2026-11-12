@@ -7,6 +7,7 @@ const results = document.querySelector('#results');
 const status = document.querySelector('#status');
 const sourceStatus = {};
 const labels = { osm: 'OpenStreetMap', yelp: 'Yelp', events: 'Ticketmaster', museum: 'Portland Museum of Art' };
+const isPages = document.documentElement.hasAttribute('data-pages');
 let places = [];
 let category = 'all';
 let placeSort = 'name';
@@ -130,7 +131,7 @@ async function showYelpDetails(popup, place, marker) {
   try {
     let details = yelpDetails.get(id);
     if (!details) {
-      const response = await fetch(`/api/yelp-details?id=${encodeURIComponent(id)}`);
+      const response = await fetch(`./api/yelp-details?id=${encodeURIComponent(id)}`);
       if (!response.ok) throw new Error('Details unavailable');
       details = await response.json();
       yelpDetails.set(id, details);
@@ -234,7 +235,8 @@ async function loadProvider(source) {
   sourceStatus[source] = 'loading';
   updateStatus();
   try {
-    const response = await fetch(`/api/places?source=${source}`, { signal: AbortSignal.timeout(60000) });
+    const path = isPages ? `./data/${source}.json` : `./api/places?source=${source}`;
+    const response = await fetch(path, { signal: AbortSignal.timeout(60000) });
     if (!response.ok) throw new Error('Request failed');
     const data = await response.json();
     if (source === 'museum' && data.status === 'live') {
@@ -270,18 +272,21 @@ document.querySelectorAll('[data-category]').forEach(button => {
 
 async function start() {
   try {
-    const response = await fetch('/sample-places.json');
+    const response = await fetch('./sample-places.json');
     if (!response.ok) throw new Error('Samples unavailable');
     places = await response.json();
     render();
   } catch {
     status.textContent = 'Sample locations could not load.';
   }
-  await Promise.all(['osm', 'yelp', 'events', 'museum'].map(loadProvider));
+  const sources = isPages ? ['osm', 'museum'] : ['osm', 'yelp', 'events', 'museum'];
+  await Promise.all(sources.map(loadProvider));
 }
 
-setInterval(() => {
-  if (!document.hidden && sourceStatus.museum !== 'loading') loadProvider('museum');
-}, 15 * 60 * 1000);
+if (!isPages) {
+  setInterval(() => {
+    if (!document.hidden && sourceStatus.museum !== 'loading') loadProvider('museum');
+  }, 15 * 60 * 1000);
+}
 
 start();

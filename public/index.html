@@ -6,23 +6,23 @@
   <title>PineSearch | Greater Portland</title>
   <meta name="description" content="Find food, shops, parks, trails and events around Portland, Maine.">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
   <div class="photo-background" aria-hidden="true">
-    <img src="/photos/portland-head-light.jpg" alt="">
-    <img src="/photos/old-port.jpg" alt="">
-    <img src="/photos/eastern-promenade.jpg" alt="">
-    <img src="/photos/portland-observatory.jpg" alt="">
-    <img src="/photos/bug-light.jpg" alt="">
-    <img src="/photos/peaks-island.jpg" alt="">
-    <img src="/photos/spring-point.jpg" alt="">
-    <img src="/photos/portland-museum.jpg" alt="">
-    <img src="/photos/willard-beach.jpg" alt="">
-    <img src="/photos/back-cove.jpg" alt="">
+    <img src="./photos/portland-head-light.jpg" alt="">
+    <img src="./photos/old-port.jpg" alt="">
+    <img src="./photos/eastern-promenade.jpg" alt="">
+    <img src="./photos/portland-observatory.jpg" alt="">
+    <img src="./photos/bug-light.jpg" alt="">
+    <img src="./photos/peaks-island.jpg" alt="">
+    <img src="./photos/spring-point.jpg" alt="">
+    <img src="./photos/portland-museum.jpg" alt="">
+    <img src="./photos/willard-beach.jpg" alt="">
+    <img src="./photos/back-cove.jpg" alt="">
   </div>
   <header>
-    <a class="brand" href="/">Pine<span>Search</span></a>
+    <a class="brand" href="./">Pine<span>Search</span></a>
     <nav aria-label="Page links">
       <a href="#hearts">Portland hearts</a>
       <a href="#sources">Data sources</a>
@@ -84,8 +84,8 @@
     </section>
     <section id="sources" class="source-info">
       <h2>About the listings</h2>
-      <p>OpenStreetMap supplies community-mapped places and trails. Yelp supplies businesses when connected.
-        Portland Museum of Art supplies events for the next 30 days. Ticketmaster adds ticketed events when connected.</p>
+      <p>OpenStreetMap supplies community-mapped places and trails. Portland Museum of Art supplies events for the next 30 days.
+        <span class="local-only">Yelp and Ticketmaster add listings when connected.</span></p>
       <p>For more local events, browse the <a href="https://portlandmaine.com/events-downtown/">Portland Downtown events calendar</a>.</p>
       <p>Sample locations are labeled. Distances are straight-line miles from downtown Portland, not travel distances.
         Trail pins mark mapped locations.</p>
@@ -111,12 +111,11 @@
   <footer>
     <p>A student project by <strong>Sultan Alluhaidan</strong>, a computer science major at the University of Southern Maine.</p>
     <a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors</a>
-    · Business listings from <a href="https://www.yelp.com/">Yelp</a>
-    · Events from <a href="https://www.ticketmaster.com/">Ticketmaster</a>
-    and <a href="https://www.portlandmuseum.org/events/">Portland Museum of Art</a>
+    · Events from <a href="https://www.portlandmuseum.org/events/">Portland Museum of Art</a>
+    <span class="local-only">· <a href="https://www.yelp.com/">Yelp</a> · <a href="https://www.ticketmaster.com/">Ticketmaster</a></span>
     · Local calendar <a href="https://portlandmaine.com/events-downtown/">Portland Downtown</a>
   </footer>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script type="module" src="/app.js"></script>
+  <script type="module" src="./app.js"></script>
 </body>
 </html>
