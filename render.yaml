@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: pinesearch
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: HOST
+        value: 0.0.0.0

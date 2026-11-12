@@ -87,7 +87,8 @@ export function makeServer(loader = loadSource, liveReload = false) {
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const port = Number(process.env.PORT || 3000);
-  makeServer(loadSource, process.argv.includes('--dev')).listen(port, '127.0.0.1', () => {
-    console.log(`PineSearch is running at http://localhost:${port}`);
+  const host = process.env.HOST || '127.0.0.1';
+  makeServer(loadSource, process.argv.includes('--dev')).listen(port, host, () => {
+    console.log(`PineSearch is listening on ${host}:${port}`);
   });
 }
