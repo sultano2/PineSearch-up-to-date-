@@ -13,6 +13,14 @@
   display: none;
 }
 
+.pages-only {
+  display: none;
+}
+
+[data-pages] .pages-only {
+  display: inline;
+}
+
 body {
   margin: 0;
   isolation: isolate;
